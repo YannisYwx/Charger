@@ -1,0 +1,131 @@
+<resources>
+    <string name="app_name">BT2500&#8211;12S</string>
+    <string name="chargingTime">%02d-%02d-%02d</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">BT2500&#8211;12S</string>
+    <string name="action_settings">Settings</string>
+    <string name="add_device">Add device</string>
+    <string name="device_list">Device list</string>
+    <string name="settings_wifi">Wifi settings</string>
+    <string name="dialog_title_delete_device">Whether to delete this device?</string>
+    <string name="test">Test</string>
+    <string name="ch1">CH-1</string>
+    <string name="ch2">CH-2</string>
+    <string name="wifi_status_disconnect">Wifi is disconnect</string>
+    <string name="wifi_status_connect">Connect Wifi : %s</string>
+    <string name="wifi_status_close">Wifi is close</string>
+    <string name="wifi_status_open">Wifi is open</string>
+    <string name="title_main">Charger list</string>
+    <string name="title_add_device">Add Device</string>
+    <string name="title_wifi_settings">Wifi Settings</string>
+    <string name="title_device_list">Device list</string>
+    <string name="title_charger_details">Charger Details</string>
+    <string name="title_charger_settings">Charger Settings</string>
+    <string name="Li_Po">Li-Po</string>
+    <string name="Li_Hv">Li-Hv</string>
+    <string name="FULLY_MAX">FULLY-MAX</string>
+    <string name="GENS_ACE">GENS-ACE</string>
+    <string name="upkeep">Upkeep</string>
+    <string name="charging">Charging</string>
+    <string name="balance">Balance</string>
+    <string name="storage">Storage</string>
+    <string name="discharge">Discharge</string>
+    <string name="battery_type">Battery Type</string>
+    <string name="charger_mode">Charger Mode</string>
+    <string name="charger_status_start">Start</string>
+    <string name="charger_status_stop">Stop</string>
+
+    <string name="spv_hint">Please select the range %s for sliding</string>
+    <string name= "spv_highlight">%d～%d%s</string>
+
+    <string name="current_setting">Charger Setting</string>
+    <string name="hint_current_setting">Please select the range 0.1～25A for sliding</string>
+    <string name="hint_hl_current_setting">0.1～25A</string>
+
+    <string name="battery_temperature">Battery temperature alarm setting</string>
+    <string name="hint_battery_temperature">Please select the range 40~80℃ for sliding</string>
+    <string name="hint_hl_battery_temperature">40~80℃</string>
+
+    <string name="charger_time">Maximum charging time setting</string>
+    <string name="hint_charger_time">Please select the range 10～120Min for sliding</string>
+    <string name="hint_hl_charger_time">10～120Min</string>
+
+    <string name="charger_capacity">Maximum charging capacity setting</string>
+    <string name="hint_charger_capacity">Please select the range 1000～100000mAh for sliding</string>
+    <string name="hint_hl_charger_capacity">1000～100000mAh</string>
+
+    <string name="battery_cells">Battery cells</string>
+    <string name="hint_battery_cells">Please select the range 2～12S for sliding</string>
+    <string name="hint_hl_battery_cells">2～12S</string>
+
+    <string name="charger_duration">%02d:%02d:%02d</string>
+    <string name="channel_num">CH-%d</string>
+
+    <string name="settings_success">Setting success</string>
+    <string name="settings_failed">Setting failed</string>
+    <string name="data_send_success">Data send success</string>
+    <string name="temperature">Temperature</string>
+    <string name="voltage">Voltage</string>
+
+    <string name="single_v">Single section voltage</string>
+    <string name="battery_temp">Battery TEMP</string>
+    <string name="battery_id">Battery ID</string>
+    <string name="current">Current</string>
+    <string name="charger_temp">Charger TEMP</string>
+    <string name="duration">Duration</string>
+    <string name="charger_no">No. of charger</string>
+    <string name="battery_">Battery %s</string>
+    <string name="input_device_id_to_add">Enter charger number，You can add charger</string>
+    <string name="input_device_id">Enter charger number</string>
+    <string name="settings_wifi_account">input wifi account</string>
+    <string name="settings_wifi_password">input wifi password</string>
+    <string name="check_wifi_status">please check your phone wifi status</string>
+
+    <string-array name="channels">
+        <item>CH1</item>
+        <item>CH2</item>
+    </string-array>
+
+    <string-array name="battery_type">
+        <item>Li-Po</item>
+        <item>Li-Hv</item>
+        <item>FULLY-MAX</item>
+        <item>GENS-ACE</item>
+    </string-array>
+
+    <string-array name="work_mode">
+        <item>Upkeep</item>
+        <item>Charging</item>
+        <item>Discharging</item>
+        <item>Balance</item>
+    </string-array>
+
+    <string-array name="battery_status">
+        <item>Standby</item>
+        <item>Full</item>
+        <item>Connection break</item>
+        <item>Reverse polarity</item>
+        <item>Over Voltage</item>
+        <item>Low voltage</item>
+        <item>Input vol err</item>
+        <item>Battery damaged</item>
+        <item>Balance finished</item>
+        <item>Store is OK</item>
+        <item>Discharge finished</item>
+        <item>Over Temperature</item>
+        <item>Over Time</item>
+    </string-array>
+
+    <!--* 0-Standby标准/-->
+    <!--* 1-Full充电充满/-->
+    <!--* 2-Connection break电池连接异常/-->
+    <!--* 3-Reverse polarity电池极性接反/-->
+    <!--* 4-Over Voltage电池电压过高/-->
+    <!--* 5-Low voltage电池电压过低/-->
+    <!--* 6-Input vol err输入电压异常/-->
+    <!--* 7-Battery damaged电池损坏/-->
+    <!--* 8-Balance finished平衡完成/-->
+    <!--* 9-Store is ok保养完成/-->
+    <!--* 10-Discharge finished放电完成-->
+
+</resources>

@@ -1,0 +1,39 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="nav_header_vertical_spacing">8dp</dimen>
+    <dimen name="nav_header_height">176dp</dimen>
+    <!--登记点的大小是10dp-->
+
+    <dimen name="text_large_size">18sp</dimen><!--大字-->
+    <dimen name="text_middle_size">16sp</dimen><!--中等字-->
+    <dimen name="top_mini_size">12sp</dimen><!--小字-->
+
+    <dimen name="icon_large_size">45dp</dimen><!--大图标-->
+    <dimen name="icon_middle_size">35dp</dimen><!--中等图标-->
+    <dimen name="icon_mini_size">25dp</dimen><!--小图标-->
+
+    <dimen name="dividerHeight">0.68dp</dimen><!--分割线高度-->
+    <dimen name="dividerHeightThick">1.00dp</dimen><!--分割线高度-->
+    <dimen name="item_height">47dp</dimen><!--item高度-->
+    <dimen name="view_dividerHeight">8dp</dimen>
+
+    <dimen name="common_navigator_height">40dp</dimen>
+    <!-- dimensions -->
+    <dimen name="image_width">120dp</dimen>
+    <dimen name="image_final_width">32dp</dimen>
+    <dimen name="spacing_normal">16dp</dimen>
+
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="keyline_2">72dp</dimen>
+    <dimen name="expanded_toolbar_height">144dp</dimen>
+
+    <dimen name="default_collapsed_padding">30dp</dimen>
+    <dimen name="default_expanded_padding">10dp</dimen>
+    <dimen name="default_collapsed_image_size">30dp</dimen>
+    <dimen name="default_expanded_image_size">30dp</dimen>
+    <dimen name="default_collapsed_text_size">13sp</dimen>
+    <dimen name="default_expanded_text_size">14sp</dimen>
+</resources>

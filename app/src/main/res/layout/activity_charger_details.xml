@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent"
+                                             android:background="@color/colorPrimaryDark"
+                                             android:fitsSystemWindows="true">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fitsSystemWindows="true"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorPrimaryDark"
+            android:fitsSystemWindows="true"
+            android:paddingBottom="100dp">
+
+            <View
+                android:id="@+id/bg"
+                android:layout_width="match_parent"
+                android:layout_height="720dp"
+                android:layout_marginEnd="26dp"
+                android:layout_marginStart="26dp"
+                android:layout_marginTop="112dp"
+                android:background="@drawable/bg_charger"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <ImageView
+                android:id="@+id/iv_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="54dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/icon_lines"/>
+
+
+            <TextView
+                android:id="@+id/tv_channel_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="43dp"
+                android:text="@string/ch1"
+                android:textColor="#EDF0F7"
+                android:textSize="20sp"
+                app:layout_constraintLeft_toRightOf="@+id/iv_line"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_charger_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="68dp"
+                android:textColor="#938EA2"
+                android:textSize="11sp"
+                app:layout_constraintLeft_toRightOf="@+id/iv_line"
+                app:layout_constraintTop_toBottomOf="@+id/tv_channel_name"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/tv_status_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="41dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="79dp"
+                android:background="@drawable/bg_status_charging"
+                android:textColor="#FF7932"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/iv_line"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_goneMarginTop="90.5dp"/>
+
+            <TextView
+                android:id="@+id/tv_section"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="40.5dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/single_v"
+                android:textColor="#938EA2"
+                android:textSize="14sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/v_l"/>
+
+            <View
+                android:id="@+id/v_circle_right"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="435.5dp"
+                android:background="@drawable/bg_semi_circle_right"
+                app:layout_constraintLeft_toLeftOf="@+id/bg"
+                app:layout_constraintTop_toTopOf="@+id/bg"/>
+
+            <View
+                android:id="@+id/v_circle_left"
+                android:layout_width="10dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="435.5dp"
+                android:background="@drawable/bg_semi_circle_left"
+                app:layout_constraintRight_toRightOf="@+id/bg"
+                app:layout_constraintTop_toTopOf="@+id/bg"/>
+
+            <View
+                android:id="@+id/v_l"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:background="@drawable/bg_dotted_line"
+                android:layerType="software"
+                app:layout_constraintBottom_toBottomOf="@+id/v_circle_left"
+                app:layout_constraintLeft_toRightOf="@+id/v_circle_right"
+                app:layout_constraintRight_toLeftOf="@+id/v_circle_left"
+                app:layout_constraintTop_toTopOf="@+id/v_circle_left"/>
+
+            <com.sevenchip.charger.widget.ChargerPropertyView
+                android:id="@+id/cv_battery_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="144.5dp"
+                app:label="@string/battery_type"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:propertyValue="LiHp"/>
+
+            <com.sevenchip.charger.widget.ChargerPropertyView
+                android:id="@+id/cv_voltage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="226dp"
+                app:label="@string/voltage"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:propertyValue="220"
+                app:unit="v"/>
+
+            <com.sevenchip.charger.widget.ChargerPropertyView
+                android:id="@+id/cv_battery_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="307dp"
+                app:label="@string/battery_temp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:propertyValue="49.6"
+                app:unit="℃"/>
+
+            <com.sevenchip.charger.widget.ChargerPropertyView
+                android:id="@+id/cv_cap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="388dp"
+                app:label="CAP"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:propertyValue="6"
+                app:unit="mAh"/>
+
+            <com.sevenchip.charger.widget.ChargerPropertyView
+                android:id="@+id/cv_battery_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="59dp"
+                android:layout_marginTop="469dp"
+                app:label="@string/battery_id"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <com.sevenchip.charger.widget.ChargerPropertyView
+                android:id="@+id/cv_battery_cells"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="222.5dp"
+                android:layout_marginTop="144.5dp"
+                app:label="@string/battery_cells"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:propertyValue="12"/>
+
+            <com.sevenchip.charger.widget.ChargerPropertyView
+                android:id="@+id/cv_current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="222.5dp"
+                android:layout_marginTop="226dp"
+                app:label="@string/current"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:propertyValue="3.6"
+                app:unit="A"/>
+
+            <com.sevenchip.charger.widget.ChargerPropertyView
+                android:id="@+id/cv_charger_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="222.5dp"
+                android:layout_marginTop="307dp"
+                app:label="@string/charger_temp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:propertyValue="36.6"
+                app:unit="℃"/>
+
+            <com.sevenchip.charger.widget.ChargerPropertyView
+                android:id="@+id/cv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="222.5dp"
+                android:layout_marginTop="388dp"
+                app:label="@string/duration"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:propertyValue="00:00:56"/>
+
+            <com.sevenchip.charger.widget.ChargerPropertyView
+                android:id="@+id/cv_battery_no"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="222.5dp"
+                android:layout_marginTop="469dp"
+                app:label="@string/charger_no"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:propertyValue="001"/>
+
+            <com.sevenchip.charger.widget.IconButton
+                android:id="@+id/btn_start_charging"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_btn_start_charging"
+                android:drawableStart="@mipmap/icon_flash"
+                android:drawablePadding="50dp"
+                android:text="Start charging"
+                android:textAllCaps="false"
+                android:textColor="#938EA2"
+                android:textSize="14sp"
+                android:visibility="gone"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/bg"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintLeft_toLeftOf="@+id/bg"
+                app:layout_constraintTop_toBottomOf="@+id/tv_section"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="1S"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/vv_1"
+                app:layout_constraintTop_toTopOf="@+id/vv_1"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="2S"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/vv_2"
+                app:layout_constraintTop_toTopOf="@+id/vv_1"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="3S"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/vv_3"
+                app:layout_constraintTop_toTopOf="@+id/vv_1"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="4S"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/vv_4"
+                app:layout_constraintTop_toTopOf="@+id/vv_1"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="5S"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/vv_5"
+                app:layout_constraintTop_toTopOf="@+id/vv_1"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="6S"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="25dp"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/bg"
+                app:layout_constraintLeft_toLeftOf="@+id/bg"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="7S"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/vv_7"
+                app:layout_constraintTop_toTopOf="@+id/vv_7"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="8S"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/vv_8"
+                app:layout_constraintTop_toTopOf="@+id/vv_7"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="9S"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/vv_9"
+                app:layout_constraintTop_toTopOf="@+id/vv_7"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="10S"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/vv_10"
+                app:layout_constraintTop_toTopOf="@+id/vv_7"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="11S"/>
+
+            <com.sevenchip.charger.widget.VoltageView
+                android:id="@+id/vv_12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toRightOf="@+id/vv_11"
+                app:layout_constraintTop_toTopOf="@+id/vv_7"
+                app:powerIcon="@mipmap/icon_power_full"
+                app:second="12S"/>
+
+        </android.support.constraint.ConstraintLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.sevenchip.charger.widget.TitleBar
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/colorPrimaryDark"
+        app:centerMode="title"
+        app:centerTitle="@string/title_charger_details"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:leftDrawable="@mipmap/ic_arrow_back"
+        app:titleColor="@color/white"/>
+</android.support.constraint.ConstraintLayout>

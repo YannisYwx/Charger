@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="icon" format="reference"/>
+    <attr name="hasBottomLine" format="boolean"/>
+    <attr name="label" format="reference|string"/>
+    <attr name="propertyValue" format="string"/>
+
+    <declare-styleable name="VoltageView">
+        <attr name="powerIcon" format="reference"/>
+        <attr name="voltage" format="string"/>
+        <attr name="second" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="ChargerPropertyView">
+        <attr name="label"/>
+        <attr name="propertyValue"/>
+        <attr name="unit" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="SettingPropertyView">
+        <attr name="label"/>
+        <attr name="symbol" format="string"/>
+        <attr name="hint" format="string"/>
+        <attr name="hintHighlight" format="string"/>
+        <attr name="propertyValue"/>
+        <attr name="min" format="float"/>
+        <attr name="max" format="float"/>
+        <attr name="progress" format="integer"/>
+        <attr name="isDecimal" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="IconButton">
+        <attr name="iconPadding" format="dimension"/>
+    </declare-styleable>
+
+    <declare-styleable name="TitleBar">
+        <attr name="leftDrawable" format="reference" />
+        <attr name="rightDrawable" format="reference" />
+        <attr name="right2Drawable" format="reference" />
+        <attr name="centerTitle" format="string" />
+        <attr name="leftBtnText" format="string" />
+        <attr name="rightBtnText" format="string" />
+        <attr name="lfText" format="string" />
+        <attr name="rtText" format="string" />
+        <attr name="titleColor" format="color|reference" />
+        <attr name="leftTextColor" format="color|reference" />
+        <attr name="rightTextColor" format="color|reference" />
+        <attr name="centerMode">
+            <enum name="title" value="0" />
+            <enum name="button" value="1" />
+        </attr>
+        <attr name="rightIconVisibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="1" />
+        </attr>
+        <attr name="rightIcon2Visibility">
+            <enum name="visible" value="0" />
+            <enum name="gone" value="1" />
+        </attr>
+    </declare-styleable>
+</resources>

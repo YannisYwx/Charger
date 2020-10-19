@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/tv_label_property"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Charger Current"
+        android:textColor="#EDF0F7"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/tv_hint_property"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Please select the range 0.1～30A for sliding"
+        android:textColor="#4B4952"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_label_property"/>
+
+    <ImageView
+        android:id="@+id/iv_sub"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bg_a_s"
+        android:gravity="center"
+        android:src="@mipmap/subtract"
+        android:textColor="#FFEDF0F7"
+        android:padding="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hint_property"/>
+
+    <TextView
+        android:id="@+id/tv_current_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="0.4A"
+        android:textColor="@color/text_Blue"
+        android:textSize="14sp"
+        app:layout_constraintLeft_toRightOf="@+id/iv_sub"
+        app:layout_constraintTop_toTopOf="@+id/iv_sub"/>
+
+    <ImageView
+        android:id="@+id/iv_add"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="18dp"
+        android:background="@drawable/bg_a_s"
+        android:gravity="center"
+        android:src="@mipmap/add"
+        android:padding="8dp"
+        android:textColor="#FFEDF0F7"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_hint_property"/>
+
+    <android.support.v7.widget.AppCompatSeekBar
+        android:id="@+id/sb_property"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:maxHeight="5dp"
+        android:minHeight="5dp"
+        android:progressDrawable="@drawable/seekbar_bg"
+        android:splitTrack="false"
+        android:thumb="@drawable/selector_thumb_bar"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintLeft_toRightOf="@+id/iv_sub"
+        app:layout_constraintRight_toLeftOf="@+id/iv_add"
+        app:layout_constraintTop_toBottomOf="@+id/tv_current_value"/>
+</android.support.constraint.ConstraintLayout>

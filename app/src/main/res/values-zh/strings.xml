@@ -1,0 +1,131 @@
+<resources>
+    <string name="app_name">BT2500&#8211;12S</string>
+    <string name="chargingTime">%02d-%02d-%02d</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="nav_header_title">BT2500&#8211;12S</string>
+    <string name="action_settings">设置</string>
+    <string name="add_device">添加设备</string>
+    <string name="device_list">设备列表</string>
+    <string name="settings_wifi">Wifi设置</string>
+    <string name="dialog_title_delete_device">是否删除则会个设备?</string>
+    <string name="test">Test</string>
+    <string name="ch1">CH-1</string>
+    <string name="ch2">CH-2</string>
+    <string name="wifi_status_disconnect">Wifi 未连接</string>
+    <string name="wifi_status_connect">连接 Wifi : %s</string>
+    <string name="wifi_status_close">Wifi已关闭</string>
+    <string name="wifi_status_open">Wifi已打开</string>
+    <string name="title_main">充电列表</string>
+    <string name="title_add_device">添加设备</string>
+    <string name="title_wifi_settings">Wifi设置</string>
+    <string name="title_device_list">设备列表</string>
+    <string name="title_charger_details">电池详情</string>
+    <string name="title_charger_settings">参数设置</string>
+    <string name="Li_Po">Li-Po</string>
+    <string name="Li_Hv">Li-Hv</string>
+    <string name="FULLY_MAX">FULLY-MAX</string>
+    <string name="GENS_ACE">GENS-ACE</string>
+    <string name="upkeep">保养</string>
+    <string name="charging">充电</string>
+    <string name="balance">平衡</string>
+    <string name="storage">存储</string>
+    <string name="discharge">放电</string>
+    <string name="battery_type">电池类型</string>
+    <string name="charger_mode">充电模式</string>
+    <string name="charger_status_start">开始</string>
+    <string name="charger_status_stop">停止</string>
+
+    <string name="spv_hint">滑动设置范围（%s）</string>
+    <string name= "spv_highlight">%d～%d%s</string>
+
+    <string name="current_setting">电流设置</string>
+    <string name="hint_current_setting">滑动设置电流范围（0.1～25A）</string>
+    <string name="hint_hl_current_setting">0.1～25A</string>
+
+    <string name="battery_temperature">电池温度报警设置</string>
+    <string name="hint_battery_temperature">滑动设置温度范围（40~80℃）</string>
+    <string name="hint_hl_battery_temperature">40~80℃</string>
+
+    <string name="charger_time">最大充电时间设置</string>
+    <string name="hint_charger_time">滑动设置时间范围（10～120Min）</string>
+    <string name="hint_hl_charger_time">10～120Min</string>
+
+    <string name="charger_capacity">最大电池容量设置</string>
+    <string name="hint_charger_capacity">滑动设置电容范围（1000～100000mAh）</string>
+    <string name="hint_hl_charger_capacity">1000～100000mAh</string>
+
+    <string name="battery_cells">电池节数</string>
+    <string name="hint_battery_cells">滑动设置电池节数范围（2～12S）</string>
+    <string name="hint_hl_battery_cells">2～12S</string>
+
+    <string name="charger_duration">%02d:%02d:%02d</string>
+    <string name="channel_num">CH-%d</string>
+
+    <string name="settings_success">设置成功</string>
+    <string name="settings_failed">设置失败</string>
+    <string name="data_send_success">数据发送成功</string>
+    <string name="temperature">充电器温度</string>
+    <string name="voltage">电池电压</string>
+
+    <string name="single_v">单节电池电压</string>
+    <string name="battery_temp">电池温度</string>
+    <string name="battery_id">电池ID</string>
+    <string name="current">当前电流</string>
+    <string name="charger_temp">充电温度</string>
+    <string name="duration">充电时长</string>
+    <string name="charger_no">通道号</string>
+    <string name="battery_">电池 %s</string>
+    <string name="input_device_id_to_add">您可以通过输入设备号添加设备</string>
+    <string name="input_device_id">请输入设备号</string>
+    <string name="settings_wifi_account">请输入wifi账号</string>
+    <string name="settings_wifi_password">请输入wifi密码</string>
+    <string name="check_wifi_status">请检查是否连接wifi</string>
+
+    <string-array name="channels">
+        <item>CH1</item>
+        <item>CH2</item>
+    </string-array>
+
+    <string-array name="battery_type">
+        <item>Li-Po</item>
+        <item>Li-Hv</item>
+        <item>FULLY-MAX</item>
+        <item>GENS-ACE</item>
+    </string-array>
+
+    <string-array name="work_mode">
+        <item>保养</item>
+        <item>充电</item>
+        <item>放电</item>
+        <item>平衡</item>
+    </string-array>
+
+    <string-array name="battery_status">
+        <item>标准</item>
+        <item>充满</item>
+        <item>电池连接异常</item>
+        <item>电池极性接反</item>
+        <item>电池电压过高</item>
+        <item>电池电压过低</item>
+        <item>输入电压异常</item>
+        <item>电池损坏</item>
+        <item>平衡完成</item>
+        <item>保养完成</item>
+        <item>放电完成</item>
+        <item>过温保护</item>
+        <item>超时保护</item>
+    </string-array>
+
+    <!--* 0-Standby标准/-->
+    <!--* 1-Full充电充满/-->
+    <!--* 2-Connection break电池连接异常/-->
+    <!--* 3-Reverse polarity电池极性接反/-->
+    <!--* 4-Over Voltage电池电压过高/-->
+    <!--* 5-Low voltage电池电压过低/-->
+    <!--* 6-Input vol err输入电压异常/-->
+    <!--* 7-Battery damaged电池损坏/-->
+    <!--* 8-Balance finished平衡完成/-->
+    <!--* 9-Store is ok保养完成/-->
+    <!--* 10-Discharge finished放电完成-->
+
+</resources>

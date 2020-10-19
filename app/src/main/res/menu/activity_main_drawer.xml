@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_add_device"
+            android:icon="@mipmap/ic_menu_add"
+            android:title="@string/add_device" />
+        <item
+            android:id="@+id/nav_device_list"
+            android:icon="@mipmap/ic_menu_list"
+            android:title="@string/device_list" />
+        <item
+            android:id="@+id/nav_settings_wifi"
+            android:icon="@mipmap/ic_menu_wifi"
+            android:title="@string/settings_wifi" />
+        <item
+            android:id="@+id/nav_test"
+            android:icon="@mipmap/ic_menu_test"
+            android:title="@string/test"
+            android:visible="false"/>
+    </group>
+</menu>

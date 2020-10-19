@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/relativeLayout"
+    android:layout_width="323dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_charger"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="20dp">
+
+    <ImageView
+        android:id="@+id/iv_arrows"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="159dp"
+        android:scaleType="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_arrows" />
+
+    <ProgressBar
+        android:id="@+id/pb_charger_status_1"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="210dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/layer_list_charging_drawable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_c_time" />
+
+    <ProgressBar
+        android:id="@+id/pb_charger_status_2"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="210dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:max="100"
+        android:progress="0"
+        android:progressDrawable="@drawable/layer_list_full_drawable"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_c_time_2" />
+
+    <TextView
+        android:id="@+id/tv_charger_device"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@mipmap/ic_charger_device"
+        android:drawablePadding="10dp"
+        android:layout_marginTop="20dp"
+        android:text="CHARGER 001"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_channel_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="CH1"
+        android:textColor="#938EA2"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_charger_device" />
+
+    <TextView
+        android:id="@+id/tv_status_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_status_charging"
+        android:text="Offline"
+        android:textColor="@color/chocolate"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_channel_1"
+        app:layout_constraintLeft_toRightOf="@+id/tv_channel_1" />
+
+    <TextView
+        android:id="@+id/tv_sb_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:drawablePadding="10dp"
+        android:text="@string/charger_status_stop"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_status_1"
+        app:layout_constraintRight_toLeftOf="@+id/sb_status_1" />
+
+    <TextView
+        android:id="@+id/tv_current_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="0.0"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="20dp"
+        android:text="A"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_current_1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_1" />
+
+    <TextView
+        android:id="@+id/tv_c_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        android:textColor="#938EA2"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_current_1" />
+
+    <TextView
+        android:id="@+id/tv_temperature_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="0.0"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_1" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="20dp"
+        android:text="℃"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_temperature_1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_1" />
+
+    <TextView
+        android:id="@+id/tv_t"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temperature"
+        android:textColor="#938EA2"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_temperature_1"
+        app:layout_constraintTop_toBottomOf="@+id/tv_temperature_1" />
+
+    <TextView
+        android:id="@+id/tv_voltage_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="2dp"
+        android:text="0"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintRight_toLeftOf="@id/tv_small_v"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_1" />
+
+    <TextView
+        android:id="@+id/tv_small_v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="20dp"
+        android:text="v"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_1" />
+
+    <TextView
+        android:id="@+id/tv_v"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/voltage"
+        android:textColor="#938EA2"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="@+id/tv_small_v"
+        app:layout_constraintTop_toBottomOf="@+id/tv_voltage_1" />
+
+    <TextView
+        android:id="@+id/tv_pb_v_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="0mAh"
+        android:textColor="#FF7932"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pb_charger_status_1"
+        app:layout_constraintLeft_toRightOf="@+id/pb_charger_status_1"
+        app:layout_constraintTop_toTopOf="@+id/pb_charger_status_1" />
+
+
+    <TextView
+        android:id="@+id/tv_channel_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="CH2"
+        android:textColor="#938EA2"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pb_charger_status_1" />
+
+    <TextView
+        android:id="@+id/tv_status_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_status_full"
+        android:text="Offline"
+        android:textColor="@color/themeBlue"
+        android:textSize="12sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_channel_2"
+        app:layout_constraintLeft_toRightOf="@+id/tv_channel_2" />
+
+    <TextView
+        android:id="@+id/tv_sb_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="5dp"
+        android:drawablePadding="10dp"
+        android:text="@string/charger_status_stop"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="13sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_status_2"
+        app:layout_constraintRight_toLeftOf="@+id/sb_status_2" />
+
+    <TextView
+        android:id="@+id/tv_current_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="0.0"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="20dp"
+        android:text="A"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_current_2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_2" />
+
+    <TextView
+        android:id="@+id/tv_c_time_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        android:textColor="#938EA2"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_current_2" />
+
+    <TextView
+        android:id="@+id/tv_temperature_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="0.0"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="20dp"
+        android:text="℃"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toRightOf="@id/tv_temperature_2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_2" />
+
+    <TextView
+        android:id="@+id/tv_t_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/temperature"
+        android:textColor="#938EA2"
+        android:textSize="12sp"
+        app:layout_constraintLeft_toLeftOf="@+id/tv_temperature_2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_temperature_2" />
+
+    <TextView
+        android:id="@+id/tv_voltage_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="2dp"
+        android:text="0"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintRight_toLeftOf="@id/tv_small_v_2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_2" />
+
+    <TextView
+        android:id="@+id/tv_small_v_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="20dp"
+        android:text="v"
+        android:textColor="#fff"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_status_2" />
+
+    <TextView
+        android:id="@+id/tv_v_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/voltage"
+        android:textColor="#938EA2"
+        android:textSize="12sp"
+        app:layout_constraintRight_toRightOf="@+id/tv_small_v_2"
+        app:layout_constraintTop_toBottomOf="@+id/tv_voltage_2" />
+
+    <TextView
+        android:id="@+id/tv_pb_v_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="0Ah"
+        android:textColor="#0F74F6"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/pb_charger_status_2"
+        app:layout_constraintLeft_toRightOf="@+id/pb_charger_status_2"
+        app:layout_constraintTop_toTopOf="@+id/pb_charger_status_2" />
+
+    <ImageView
+        android:id="@+id/sb_status_1"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="2sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_status_1"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_status_1"
+        android:background="@drawable/selector_switch"
+        />
+
+    <ImageView
+        android:id="@+id/sb_status_2"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="2sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_status_2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_status_2"
+        android:background="@drawable/selector_switch"/>
+</android.support.constraint.ConstraintLayout>
+
