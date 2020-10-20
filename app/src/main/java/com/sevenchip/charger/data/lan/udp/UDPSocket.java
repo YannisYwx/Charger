@@ -198,7 +198,7 @@ public class UDPSocket {
                 sendMessage(string);
             }
         });
-        timer.startTimer(0, 1000 * 10);
+        timer.startTimer(0, 1000 * 3);
     }
 
     /**

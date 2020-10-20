@@ -13,6 +13,8 @@ import com.sevenchip.charger.data.lan.udp.TCPManager;
 import com.sevenchip.charger.utils.ByteUtils;
 import com.sevenchip.charger.utils.NetworkUtils;
 
+import butterknife.BindView;
+
 /**
  * @author : Alvin
  * create at : 2020/8/10 17:02
@@ -20,14 +22,21 @@ import com.sevenchip.charger.utils.NetworkUtils;
  */
 public class TestTCPActivity extends BaseActivity implements TCPManager.TCPConnectListener {
     private static final String TAG = TestTCPActivity.class.getSimpleName();
+    @BindView(R.id.btn_scan)
     Button btnScan;
+    @BindView(R.id.btn_connect)
     Button btnConnect;
+    @BindView(R.id.btn_apply)
     Button btnApply;
-
+    @BindView(R.id.tv_device_ip)
     TextView tvIP;
+    @BindView(R.id.tv_title)
     TextView tvTitle;
+    @BindView(R.id.tv_gg)
     TextView tvContent;
+    @BindView(R.id.et_ssid)
     EditText etSSID;
+    @BindView(R.id.et_password)
     EditText etPassword;
 
     String hotspotAddress;
@@ -38,14 +47,6 @@ public class TestTCPActivity extends BaseActivity implements TCPManager.TCPConne
 
     @Override
     protected void init() {
-        btnScan = findViewById(R.id.btn_scan);
-        btnConnect = findViewById(R.id.btn_connect);
-        btnApply = findViewById(R.id.btn_apply);
-        tvIP = findViewById(R.id.tv_device_ip);
-        etSSID = findViewById(R.id.et_ssid);
-        etPassword = findViewById(R.id.et_password);
-        tvTitle = findViewById(R.id.tv_title);
-        tvContent = findViewById(R.id.tv_gg);
         hotspotAddress = NetworkUtils.getHotspotAddress(this);
         localAddress = NetworkUtils.getLocalAddress(this);
         if (!TextUtils.isEmpty(hotspotAddress)) {

@@ -79,7 +79,7 @@ public class MainPresenter extends BasePresenter<MainContract.View, MainContract
     }
 
     @Override
-    public void onDataReceiveError(String errorMsg) {
-
+    public void onDeviceOffline() {
+        mView.refresh();
     }
 }

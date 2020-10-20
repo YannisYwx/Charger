@@ -14,6 +14,8 @@ import com.sevenchip.charger.data.TestDataMode;
 import com.sevenchip.charger.data.lan.udp.UDPManager;
 import com.sevenchip.charger.utils.ByteUtils;
 
+import butterknife.BindView;
+
 /**
  * @author : Alvin
  * create at : 2020/8/6 13:08
@@ -21,16 +23,27 @@ import com.sevenchip.charger.utils.ByteUtils;
  */
 public class TestUDPConnActivity extends BaseActivity implements UDPManager.OnLanMessageListener {
     public static final String TAG = TestUDPConnActivity.class.getSimpleName();
+    @BindView(R.id.tv_ip)
     TextView tvTitle;
+    @BindView(R.id.tv_content)
     TextView tvContent;
+    @BindView(R.id.tv_gg)
     TextView tvContentSend;
+    @BindView(R.id.tv_re)
     TextView tvReceive;
+    @BindView(R.id.et_port_local)
     EditText etLocalPort;
+    @BindView(R.id.et_port_device)
     EditText etDevicePort;
+    @BindView(R.id.et_content)
     EditText etContent;
+    @BindView(R.id.btn_send)
     Button btnSend;
+    @BindView(R.id.btn_start_receive)
     Button btnReceive;
+    @BindView(R.id.btn_stop_receive)
     Button btnStopReceive;
+    @BindView(R.id.btn_send_default)
     Button btnSendDefault;
     private String ip;
     private int localPort = 4000;
@@ -43,17 +56,6 @@ public class TestUDPConnActivity extends BaseActivity implements UDPManager.OnLa
     protected void init() {
         Bundle bundle = getIntent().getBundleExtra(EXTRA);
         ip = bundle.getString("IP");
-        tvTitle = findViewById(R.id.tv_ip);
-        tvReceive = findViewById(R.id.tv_re);
-        etLocalPort = findViewById(R.id.et_port_local);
-        etDevicePort = findViewById(R.id.et_port_device);
-        etContent = findViewById(R.id.et_content);
-        btnSend = findViewById(R.id.btn_send);
-        btnReceive = findViewById(R.id.btn_start_receive);
-        btnStopReceive = findViewById(R.id.btn_stop_receive);
-        btnSendDefault = findViewById(R.id.btn_send_default);
-        tvContent = findViewById(R.id.tv_content);
-        tvContentSend = findViewById(R.id.tv_gg);
         registerClickEvent(btnReceive, btnSend, btnStopReceive, btnSendDefault);
         tvTitle.setText(TextUtils.isEmpty(ip) ? "UnKnow address" : ip);
 //        mUDPSocket = new UDPSocket();
@@ -152,6 +154,11 @@ public class TestUDPConnActivity extends BaseActivity implements UDPManager.OnLa
     public void onDataReceiveError(String errorMsg) {
         showToast("数据接受失败");
         Log.d(TAG, "数据接受失败：msg = " + errorMsg);
+    }
+
+    @Override
+    public void onDeviceOffline() {
+
     }
 
     @Override

@@ -162,6 +162,8 @@ public class SettingsFragment extends BaseMVPFragment<SettingsPresenter> impleme
             case WorkMode.Balance:
                 balanceValue = value;
                 break;
+            default:
+                break;
         }
     }
 
@@ -180,6 +182,8 @@ public class SettingsFragment extends BaseMVPFragment<SettingsPresenter> impleme
                     break;
                 case R.id.rb_GENS_ACE:
                     batteryType = BatteryType.GENS_ACE;
+                    break;
+                default:
                     break;
             }
         });

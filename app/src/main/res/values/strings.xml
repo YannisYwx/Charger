@@ -34,6 +34,7 @@
     <string name="charger_mode">Charger Mode</string>
     <string name="charger_status_start">Start</string>
     <string name="charger_status_stop">Stop</string>
+    <string name="offline">offline</string>
 
     <string name="spv_hint">Please select the range %s for sliding</string>
     <string name= "spv_highlight">%d～%d%s</string>

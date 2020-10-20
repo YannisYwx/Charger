@@ -58,7 +58,7 @@ public class SettingsPresenter extends BasePresenter<SettingsContract.View, Sett
     }
 
     @Override
-    public void onDataReceiveError(String errorMsg) {
+    public void onDeviceOffline() {
 
     }
 }

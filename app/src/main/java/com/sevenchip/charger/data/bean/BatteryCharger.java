@@ -12,12 +12,41 @@ import java.io.Serializable;
 public class BatteryCharger implements Serializable {
     private static final String TAG = "BatteryCharger";
 
+    public static final int TIME_OUT = 3 * 1_000;
+
     private String deviceId;
 
     private UpstreamData CH01;
     private UpstreamData CH02;
 
-    public BatteryCharger(UpstreamData upstreamData){
+    private long lastReceiveTimeCh1 = 0L;
+    private long lastReceiveTimeCh2 = 0L;
+
+    public long getLastReceiveTimeCh1() {
+        return lastReceiveTimeCh1;
+    }
+
+    public void setLastReceiveTimeCh1(long lastReceiveTimeCh1) {
+        this.lastReceiveTimeCh1 = lastReceiveTimeCh1;
+    }
+
+    public long getLastReceiveTimeCh2() {
+        return lastReceiveTimeCh2;
+    }
+
+    public void setLastReceiveTimeCh2(long lastReceiveTimeCh2) {
+        this.lastReceiveTimeCh2 = lastReceiveTimeCh2;
+    }
+
+    public boolean isCH1Online(){
+        return System.currentTimeMillis() - lastReceiveTimeCh1 < TIME_OUT;
+    }
+
+    public boolean isCH2Online(){
+        return System.currentTimeMillis() - lastReceiveTimeCh2 < TIME_OUT;
+    }
+
+    public BatteryCharger(UpstreamData upstreamData) {
         setChannel(upstreamData);
     }
 
@@ -49,6 +78,7 @@ public class BatteryCharger implements Serializable {
         if (deviceId == null || deviceId.equals(currentDeviceId)) {
             this.deviceId = currentDeviceId;
             this.CH01 = CH01;
+            this.lastReceiveTimeCh1 = System.currentTimeMillis();
         } else {
             Log.e(TAG, "设置失败 本设备id = " + deviceId + ", 该数据id = " + currentDeviceId);
         }
@@ -63,6 +93,7 @@ public class BatteryCharger implements Serializable {
         if (deviceId == null || deviceId.equals(currentDeviceId)) {
             this.deviceId = currentDeviceId;
             this.CH02 = CH02;
+            this.lastReceiveTimeCh2 = System.currentTimeMillis();
         } else {
             Log.e(TAG, "设置失败 本设备id = " + deviceId + ", 该数据id = " + currentDeviceId);
         }

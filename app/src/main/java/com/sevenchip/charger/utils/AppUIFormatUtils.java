@@ -66,6 +66,12 @@ public class AppUIFormatUtils {
         textView.setText(statusInfo);
     }
 
+    public static void setOfflineStatus(TextView textView){
+        textView.setText(R.string.offline);
+        textView.setBackgroundResource(R.drawable.bg_status_full);
+        textView.setTextColor(ChargerApplication.instance.getResources().getColor(R.color.themeBlue));
+    }
+
     /**
      * 获取充电状态详情的样式
      *

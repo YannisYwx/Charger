@@ -6,6 +6,8 @@ import android.widget.Button;
 import com.sevenchip.charger.R;
 import com.sevenchip.charger.base.BaseActivity;
 
+import butterknife.BindView;
+
 /**
  * @author : Alvin
  * create at : 2020/8/10 16:55
@@ -13,13 +15,13 @@ import com.sevenchip.charger.base.BaseActivity;
  */
 public class TestActivity extends BaseActivity {
 
+    @BindView(R.id.btn_udp)
     Button btnUdp;
+    @BindView(R.id.btn_tcp)
     Button btnTcp;
 
     @Override
     protected void init() {
-        btnUdp = findViewById(R.id.btn_udp);
-        btnTcp = findViewById(R.id.btn_tcp);
         registerClickEvent(btnTcp, btnUdp);
     }
 

@@ -47,4 +47,5 @@ public class HeartbeatTimer {
     public void setOnScheduleListener(OnScheduleListener listener) {
         this.mListener = listener;
     }
+
 }

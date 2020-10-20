@@ -52,13 +52,16 @@ public class UDPManager {
     private Handler mUIHandler;
 
     private long mLastReceiveTime = -1L;
-    private static final long TIME_OUT = 120 * 1000;
+    private static final long TIME_OUT = 3 * 1000;
+
+    private HeartbeatTimer timer;
 
     public enum Status {
         DATA_RECEIVE,
         DATA_SEND_COMPLETE,
         DATA_SEND_ERROR,
         DATA_RECEIVE_ERROR,
+        DEVICE_OFFLINE,
     }
 
     private void postUI(final Status status, final byte[] data, final String errorMsg) {
@@ -86,6 +89,13 @@ public class UDPManager {
                     for (OnLanMessageListener listener : mListenerList) {
                         listener.onDataReceiveError(errorMsg);
                     }
+                    break;
+                case DEVICE_OFFLINE:
+                    for (OnLanMessageListener listener : mListenerList) {
+                        listener.onDeviceOffline();
+                    }
+                    break;
+                default:
                     break;
             }
         });
@@ -174,6 +184,34 @@ public class UDPManager {
         mReceiveTask = new ReceiveTask();
         mReceiveThread = new Thread(mReceiveTask);
         mReceiveThread.start();
+        startCheckTimer();
+    }
+
+    private static final long HEARTBEAT_MESSAGE_DURATION = 10 * 1000;
+
+    /**
+     * 启动心跳，timer 间隔十秒
+     */
+    private void startCheckTimer() {
+        stopCheckTimer();
+        timer = new HeartbeatTimer();
+        timer.setOnScheduleListener(() -> {
+            long duration = System.currentTimeMillis() - mLastReceiveTime;
+            Log.d(TAG, "duration:" + duration);
+            if (duration >= TIME_OUT) {//若超过两分钟都没收到我的心跳包，则认为对方不在线。
+                Log.d(TAG, "超时，设备断开连接");
+                // 刷新时间，重新进入下一个心跳周期
+                postUI(Status.DEVICE_OFFLINE, null, null);
+            }
+        });
+        timer.startTimer(0, 1000 * 2);
+    }
+
+    private void stopCheckTimer() {
+        if (timer != null) {
+            timer.exit();
+            timer = null;
+        }
     }
 
     public String listenerHostInfo() {
@@ -196,6 +234,7 @@ public class UDPManager {
             mClient.close();
             mClient = null;
         }
+        stopCheckTimer();
     }
 
     public void stop() {
@@ -211,6 +250,7 @@ public class UDPManager {
      * 发送广播数据
      * host address 255.255.255.255
      * port 50000
+     *
      * @param data 下行数据
      */
     public void sendMessage(byte[] data) {
@@ -262,7 +302,7 @@ public class UDPManager {
                     continue;
                 }
                 byte[] batteryData = new byte[85];
-                 System.arraycopy(mReceivePacket.getData(), 0, batteryData, 0, 85);
+                System.arraycopy(mReceivePacket.getData(), 0, batteryData, 0, 85);
 
 
                 postUI(Status.DATA_RECEIVE, batteryData, null);
@@ -286,6 +326,8 @@ public class UDPManager {
         void onDataSendError(byte[] data, String errorMsg);
 
         void onDataReceiveError(String errorMsg);
+
+        void onDeviceOffline();
     }
 
     private List<OnLanMessageListener> mListenerList;
@@ -333,11 +375,12 @@ public class UDPManager {
                 } else {
                     data = TestDataMode.getCH2_2();
                 }
+                mLastReceiveTime = System.currentTimeMillis();
                 SystemClock.sleep(500);
                 postUI(Status.DATA_RECEIVE, data, null);
-//                if(count == 4) {
-//                    stopTestTask();
-//                }
+                if(count == 24) {
+                    stopTestTask();
+                }
             }
         }
     }
@@ -353,6 +396,7 @@ public class UDPManager {
             mTestThread = new Thread(mTestTask);
         }
         mTestThread.start();
+        startCheckTimer();
     }
 
     public void stopTestTask() {
@@ -362,5 +406,6 @@ public class UDPManager {
             mTestTask = null;
         }
         mTestThread = null;
+//        stopCheckTimer();
     }
 }

@@ -126,7 +126,7 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
     }
 
     private void refreshUI(UpstreamData upstreamData) {
-        if (upstreamData != null && isCurrentData(upstreamData)) {
+        if (upstreamData != null && isCurrentData(upstreamData) && DataManager.getInstance().isChannelOnline(upstreamData)) {
             tvChargerId.setText(getString(R.string.battery_, AppUIFormatUtils.getBatteryId(upstreamData)));
             tvChannel.setText(upstreamData.getDownstreamData().getChannelNum() == 0 ? R.string.ch1 : R.string.ch2);
             AppUIFormatUtils.setChargerStatusInfo(tvStatus, upstreamData);
@@ -152,6 +152,26 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
             vv10.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[9]));
             vv11.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[10]));
             vv12.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[11]));
+        } else {
+            AppUIFormatUtils.setOfflineStatus(tvStatus);
+            cpvVoltage.setChargerProperty("0.0");
+            cpvCurrent.setChargerProperty("0.0");
+            cpvCAP.setChargerProperty("0");
+            cpvDuration.setChargerProperty("00:00:00");
+            cpvBatteryTemperature.setChargerProperty("0");
+            cpvChargerTemperature.setChargerProperty("0");
+            vv1.setVoltageInfo("0.00");
+            vv2.setVoltageInfo("0.00");
+            vv3.setVoltageInfo("0.00");
+            vv4.setVoltageInfo("0.00");
+            vv5.setVoltageInfo("0.00");
+            vv6.setVoltageInfo("0.00");
+            vv7.setVoltageInfo("0.00");
+            vv8.setVoltageInfo("0.00");
+            vv9.setVoltageInfo("0.00");
+            vv10.setVoltageInfo("0.00");
+            vv11.setVoltageInfo("0.00");
+            vv12.setVoltageInfo("0.00");
         }
     }
 
@@ -171,7 +191,7 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
     }
 
     @Override
-    public void onDataReceiveError(String errorMsg) {
-
+    public void onDeviceOffline() {
+        refreshUI(null);
     }
 }

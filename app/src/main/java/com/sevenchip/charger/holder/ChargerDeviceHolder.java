@@ -104,7 +104,8 @@ public class ChargerDeviceHolder extends BaseRecycleHolder<BatteryCharger> imple
         tvChargerName.setText(data.getDeviceId().substring(5));
         UpstreamData ch1 = data.getCH01();
         UpstreamData ch2 = data.getCH02();
-        if (ch1 != null) {
+
+        if (ch1 != null && data.isCH1Online()) {
             tvCH1Name.setText(CH1);
             tvCH1Current.setText(String.valueOf(ch1.getCurrentCurrent()));
             AppUIFormatUtils.setChargerStatusInfo(tvCH1Status, ch1);
@@ -140,9 +141,16 @@ public class ChargerDeviceHolder extends BaseRecycleHolder<BatteryCharger> imple
             tvCH1Sb.setText(sbCH1.isSelected() ? R.string.charger_status_start : R.string.charger_status_stop);
         } else {
             sbCH1.setEnabled(false);
+            tvCH1Current.setText("0.0");
+            AppUIFormatUtils.setOfflineStatus(tvCH1Status);
+            tvCH1Temperature.setText("0.0");
+            tvCH1Voltage.setText("0");
+            tvCH1CurrentTime.setText("00:00:00");
+            pbCH1.setProgress(0);
+            tvCH1CPbv.setText("0mAh");
         }
 
-        if (ch2 != null) {
+        if (ch2 != null && data.isCH2Online()) {
             tvCH2Name.setText(CH2);
             tvCH2Current.setText(String.valueOf(ch2.getCurrentCurrent()));
             AppUIFormatUtils.setChargerStatusInfo(tvCH2Status, ch2);
@@ -178,6 +186,13 @@ public class ChargerDeviceHolder extends BaseRecycleHolder<BatteryCharger> imple
 
         } else {
             sbCH2.setEnabled(false);
+            tvCH2Current.setText("0.0");
+            AppUIFormatUtils.setOfflineStatus(tvCH2Status);
+            tvCH2Temperature.setText("0.0");
+            tvCH2Voltage.setText("0");
+            tvCH2CurrentTime.setText("00:00:00");
+            pbCH2.setProgress(0);
+            tvCH2CPbv.setText("0mAh");
         }
         ivArrows.setOnClickListener(this);
     }
@@ -199,7 +214,9 @@ public class ChargerDeviceHolder extends BaseRecycleHolder<BatteryCharger> imple
             case R.id.tv_c_time:
             case R.id.tv_t:
             case R.id.tv_v:
-                ChargerDetailActivity.start(mContext, getData().getCH01());
+                if (getData().getCH01() != null && getData().isCH1Online()) {
+                    ChargerDetailActivity.start(mContext, getData().getCH01());
+                }
                 break;
             case R.id.tv_channel_2:
             case R.id.tv_status_2:
@@ -211,23 +228,29 @@ public class ChargerDeviceHolder extends BaseRecycleHolder<BatteryCharger> imple
             case R.id.tv_c_time_2:
             case R.id.tv_t_2:
             case R.id.tv_v_2:
-                ChargerDetailActivity.start(mContext, getData().getCH02());
+                if (getData().getCH02() != null && getData().isCH2Online()) {
+                    ChargerDetailActivity.start(mContext, getData().getCH02());
+                }
                 break;
             case R.id.sb_status_1:
-                isChecked = sbCH1.isSelected();
-                if (mListener != null) {
-                    tvCH1Sb.setText(!isChecked ? R.string.charger_status_start : R.string.charger_status_stop);
-                    mListener.OnBatteryStatusChanged(!isChecked, getData().getCH01());
+                if (getData().getCH01() != null && getData().isCH1Online()) {
+                    isChecked = sbCH1.isSelected();
+                    if (mListener != null) {
+                        tvCH1Sb.setText(!isChecked ? R.string.charger_status_start : R.string.charger_status_stop);
+                        mListener.OnBatteryStatusChanged(!isChecked, getData().getCH01());
+                    }
+                    sbCH1.setSelected(!isChecked);
                 }
-                sbCH1.setSelected(!isChecked);
                 break;
             case R.id.sb_status_2:
-                isChecked = sbCH2.isSelected();
-                if (mListener != null) {
-                    tvCH2Sb.setText(!isChecked ? R.string.charger_status_start : R.string.charger_status_stop);
-                    mListener.OnBatteryStatusChanged(!isChecked, getData().getCH02());
+                if (getData().getCH02() != null && getData().isCH2Online()) {
+                    isChecked = sbCH2.isSelected();
+                    if (mListener != null) {
+                        tvCH2Sb.setText(!isChecked ? R.string.charger_status_start : R.string.charger_status_stop);
+                        mListener.OnBatteryStatusChanged(!isChecked, getData().getCH02());
+                    }
+                    sbCH2.setSelected(!isChecked);
                 }
-                sbCH2.setSelected(!isChecked);
                 break;
             default:
                 break;

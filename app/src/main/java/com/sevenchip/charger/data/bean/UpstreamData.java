@@ -338,4 +338,8 @@ public class UpstreamData implements Serializable {
         return tempChecksum == checksum;
     }
 
+    public static void getDefaultData(){
+
+    }
+
 }

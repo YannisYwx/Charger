@@ -49,6 +49,16 @@ public class DataManager implements UDPManager.OnLanMessageListener, WifiStatusC
         return dataList;
     }
 
+    public boolean isChannelOnline(UpstreamData upstreamData) {
+        boolean isOnline = false;
+        for (BatteryCharger batteryCharger : dataList) {
+            if (batteryCharger.getDeviceId().equals(upstreamData.getDownstreamData().getDeviceID())) {
+                isOnline = upstreamData.getDownstreamData().getChannelNum() == 0 ? batteryCharger.isCH1Online() : batteryCharger.isCH2Online();
+            }
+        }
+        return isOnline;
+    }
+
     @Override
     public void onDataReceive(byte[] data) {
         UpstreamData upstreamData = UpstreamData.parseBytes2UpstreamData(data);
@@ -76,6 +86,13 @@ public class DataManager implements UDPManager.OnLanMessageListener, WifiStatusC
     @Override
     public void onDataReceiveError(String errorMsg) {
 
+    }
+
+    @Override
+    public void onDeviceOffline() {
+        for (OnDataReceiveListener listener : mReceiveListeners) {
+            listener.onDeviceOffline();
+        }
     }
 
     @Override
@@ -295,7 +312,7 @@ public class DataManager implements UDPManager.OnLanMessageListener, WifiStatusC
      * @param password    wifi密码
      */
     public void settingWifiAccount(String hotspot, String wifiAccount, String password) {
-        String message = "ssid@" + wifiAccount + ",pswd@" + password+",end@";
+        String message = "ssid@" + wifiAccount + ",pswd@" + password + ",end@";
         TCPManager.getInstance().sendMessage(hotspot, 5050, message);
     }
 
@@ -328,7 +345,7 @@ public class DataManager implements UDPManager.OnLanMessageListener, WifiStatusC
 
         void onDataSendSuccess(DownstreamData data);
 
-        void onDataReceiveError(String errorMsg);
+        void onDeviceOffline();
     }
 
 }

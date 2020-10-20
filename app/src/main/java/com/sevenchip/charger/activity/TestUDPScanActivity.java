@@ -18,19 +18,26 @@ import com.sevenchip.charger.data.lan.LanScanDeviceUtils;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+
 /**
- * Author : Yannis.Ywx
+ * @author : Yannis.Ywx
  * CreateTime : 2020/8/2 16:43
  * Email : 923080261@qq.com
  * Description :
  */
 public class TestUDPScanActivity extends BaseActivity implements LanScanDeviceUtils.OnScanListener {
-
+    @BindView(R.id.btn_scan)
     Button btnScan;
+    @BindView(R.id.btn_scan_stop)
     Button btnStopScan;
+    @BindView(R.id.tv_local_ip)
     TextView tvLocalIp;
+    @BindView(R.id.tv_device_ip_current)
     TextView tvCurrentIp;
+    @BindView(R.id.tv_hint)
     TextView tvHint;
+    @BindView(R.id.lv_device)
     ListView mListView;
     DeviceAdapter mDeviceAdapter;
     List<String> mScanDevice = new ArrayList<>();
@@ -55,12 +62,12 @@ public class TestUDPScanActivity extends BaseActivity implements LanScanDeviceUt
 
     @Override
     protected void init() {
-        btnScan = findViewById(R.id.btn_scan);
-        btnStopScan = findViewById(R.id.btn_scan_stop);
-        tvLocalIp = findViewById(R.id.tv_local_ip);
-        tvCurrentIp = findViewById(R.id.tv_device_ip_current);
-        mListView = findViewById(R.id.lv_device);
-        tvHint = findViewById(R.id.tv_hint);
+        btnScan = (Button) findViewById(R.id.btn_scan);
+        btnStopScan = (Button) findViewById(R.id.btn_scan_stop);
+        tvLocalIp = (TextView) findViewById(R.id.tv_local_ip);
+        tvCurrentIp = (TextView) findViewById(R.id.tv_device_ip_current);
+        mListView = (ListView) findViewById(R.id.lv_device);
+        tvHint = (TextView) findViewById(R.id.tv_hint);
         mDeviceAdapter = new DeviceAdapter();
         mListView.setAdapter(mDeviceAdapter);
 

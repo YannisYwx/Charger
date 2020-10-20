@@ -34,6 +34,7 @@
     <string name="charger_mode">充电模式</string>
     <string name="charger_status_start">开始</string>
     <string name="charger_status_stop">停止</string>
+    <string name="offline">离线</string>
 
     <string name="spv_hint">滑动设置范围（%s）</string>
     <string name= "spv_highlight">%d～%d%s</string>

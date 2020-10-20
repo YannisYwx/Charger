@@ -27,6 +27,7 @@ import com.sevenchip.charger.data.bean.UpstreamData;
 import com.sevenchip.charger.holder.ChargerDeviceHolder;
 import com.sevenchip.charger.presenter.MainPresenter;
 import com.sevenchip.charger.utils.RecyclerViewSpacesItemDecoration;
+import com.sevenchip.charger.widget.TitleBar;
 
 import java.util.HashMap;
 
@@ -86,7 +87,8 @@ public class MainActivity extends BaseMVPActivity<MainContract.Presenter> implem
         mRecyclerView.setLayoutAnimation(controller);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();
-        mTitleBar = findViewById(R.id.title_bar);
+        mTitleBar = (TitleBar) findViewById(R.id.title_bar);
+        setSwipeBackEnable(false);
     }
 
     @Override
@@ -203,5 +205,9 @@ public class MainActivity extends BaseMVPActivity<MainContract.Presenter> implem
         downstreamData.setStatus(status ? 0 : 1);
         downstreamData.setCurrent(0.0f);
         mPresenter.applySettings(downstreamData);
+    }
+
+    @Override
+    public void scrollToFinishActivity() {
     }
 }

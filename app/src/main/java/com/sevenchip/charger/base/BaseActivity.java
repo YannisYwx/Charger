@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.IdRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import com.sevenchip.charger.widget.AppMsg;
 import com.sevenchip.charger.widget.TitleBar;
 
 import butterknife.ButterKnife;
+import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 import static com.sevenchip.charger.widget.AppMsg.LENGTH_LONG;
 import static com.sevenchip.charger.widget.AppMsg.LENGTH_SHORT;
@@ -30,7 +32,7 @@ import static com.sevenchip.charger.widget.AppMsg.LENGTH_STICKY;
  * CreateTime : 2020/7/18 22:20
  * Description :
  */
-public abstract class BaseActivity extends AppCompatActivity implements View.OnClickListener,
+public abstract class BaseActivity extends SwipeBackActivity implements View.OnClickListener,
         WifiStatusChangedReceiver.OnWifStatusChangerListener, TitleBar.OnEventTriggerListener {
     public static final String EXTRA = "Extra";
     protected TitleBar mTitleBar;
@@ -57,6 +59,11 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     protected void onResume() {
         super.onResume();
         WifiStatusChangedReceiver.getInstance().addWifStatusChangerListener(this);
+    }
+
+    @Override
+    public View findViewById(int id) {
+        return super.findViewById(id);
     }
 
     @Override
@@ -106,7 +113,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
      */
     public void initData() {
         if (isShowToolbar()) {
-            mTitleBar = findViewById(R.id.title_bar);
+            mTitleBar = (TitleBar) findViewById(R.id.title_bar);
             /*mTitleBar.setTitle(initTitle());*/
             /*mTitleBar.setVisibility(isShowToolbar() ? View.VISIBLE : View.GONE);*/
             mTitleBar.setOnEventTriggerListener(this);
