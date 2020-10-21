@@ -2,6 +2,7 @@ package com.sevenchip.charger.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 
@@ -126,53 +127,63 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
     }
 
     private void refreshUI(UpstreamData upstreamData) {
-        if (upstreamData != null && isCurrentData(upstreamData) && DataManager.getInstance().isChannelOnline(upstreamData)) {
-            tvChargerId.setText(getString(R.string.battery_, AppUIFormatUtils.getBatteryId(upstreamData)));
-            tvChannel.setText(upstreamData.getDownstreamData().getChannelNum() == 0 ? R.string.ch1 : R.string.ch2);
-            AppUIFormatUtils.setChargerStatusInfo(tvStatus, upstreamData);
-            cpvBatteryType.setChargerProperty(AppUIFormatUtils.getBatteryType(upstreamData));
-            cpvBatteryCells.setChargerProperty(upstreamData.getDownstreamData().getCells() + "");
-            cpvVoltage.setChargerProperty(String.valueOf(upstreamData.getTotalVoltage()));
-            cpvCurrent.setChargerProperty(String.valueOf(upstreamData.getCurrentCurrent()));
-            cpvBatteryTemperature.setChargerProperty(String.valueOf(upstreamData.getBatteryTemperature()));
-            cpvChargerTemperature.setChargerProperty(String.valueOf(upstreamData.getChargerTemperature()));
-            cpvCAP.setChargerProperty(String.valueOf(upstreamData.getCurrentCapacity()));
-            cpvDuration.setChargerProperty(upstreamData.getChargingTime());
-            cpvBatteryId.setChargerProperty(AppUIFormatUtils.getBatteryId(upstreamData));
-            cpvChNum.setChargerProperty(AppUIFormatUtils.getChannelNo(upstreamData));
-            vv1.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[0]));
-            vv2.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[1]));
-            vv3.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[2]));
-            vv4.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[3]));
-            vv5.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[4]));
-            vv6.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[5]));
-            vv7.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[6]));
-            vv8.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[7]));
-            vv9.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[8]));
-            vv10.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[9]));
-            vv11.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[10]));
-            vv12.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[11]));
+        if (upstreamData != null) {
+            if (isCurrentData(upstreamData) && DataManager.getInstance().isChannelOnline(upstreamData)) {
+                initUIByData(upstreamData);
+            }
         } else {
-            AppUIFormatUtils.setOfflineStatus(tvStatus);
-            cpvVoltage.setChargerProperty("0.0");
-            cpvCurrent.setChargerProperty("0.0");
-            cpvCAP.setChargerProperty("0");
-            cpvDuration.setChargerProperty("00:00:00");
-            cpvBatteryTemperature.setChargerProperty("0");
-            cpvChargerTemperature.setChargerProperty("0");
-            vv1.setVoltageInfo("0.00");
-            vv2.setVoltageInfo("0.00");
-            vv3.setVoltageInfo("0.00");
-            vv4.setVoltageInfo("0.00");
-            vv5.setVoltageInfo("0.00");
-            vv6.setVoltageInfo("0.00");
-            vv7.setVoltageInfo("0.00");
-            vv8.setVoltageInfo("0.00");
-            vv9.setVoltageInfo("0.00");
-            vv10.setVoltageInfo("0.00");
-            vv11.setVoltageInfo("0.00");
-            vv12.setVoltageInfo("0.00");
+            initDefaultData();
         }
+    }
+
+    private void initUIByData(@NonNull UpstreamData upstreamData){
+        tvChargerId.setText(getString(R.string.battery_, AppUIFormatUtils.getBatteryId(upstreamData)));
+        tvChannel.setText(upstreamData.getDownstreamData().getChannelNum() == 0 ? R.string.ch1 : R.string.ch2);
+        AppUIFormatUtils.setChargerStatusInfo(tvStatus, upstreamData);
+        cpvBatteryType.setChargerProperty(AppUIFormatUtils.getBatteryType(upstreamData));
+        cpvBatteryCells.setChargerProperty(upstreamData.getDownstreamData().getCells() + "");
+        cpvVoltage.setChargerProperty(String.valueOf(upstreamData.getTotalVoltage()));
+        cpvCurrent.setChargerProperty(String.valueOf(upstreamData.getCurrentCurrent()));
+        cpvBatteryTemperature.setChargerProperty(String.valueOf(upstreamData.getBatteryTemperature()));
+        cpvChargerTemperature.setChargerProperty(String.valueOf(upstreamData.getChargerTemperature()));
+        cpvCAP.setChargerProperty(String.valueOf(upstreamData.getCurrentCapacity()));
+        cpvDuration.setChargerProperty(upstreamData.getChargingTime());
+        cpvBatteryId.setChargerProperty(AppUIFormatUtils.getBatteryId(upstreamData));
+        cpvChNum.setChargerProperty(AppUIFormatUtils.getChannelNo(upstreamData));
+        vv1.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[0]));
+        vv2.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[1]));
+        vv3.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[2]));
+        vv4.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[3]));
+        vv5.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[4]));
+        vv6.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[5]));
+        vv7.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[6]));
+        vv8.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[7]));
+        vv9.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[8]));
+        vv10.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[9]));
+        vv11.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[10]));
+        vv12.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[11]));
+    }
+
+    private void initDefaultData() {
+        AppUIFormatUtils.setOfflineStatus(tvStatus);
+        cpvVoltage.setChargerProperty("0.0");
+        cpvCurrent.setChargerProperty("0.0");
+        cpvCAP.setChargerProperty("0");
+        cpvDuration.setChargerProperty("00:00:00");
+        cpvBatteryTemperature.setChargerProperty("0");
+        cpvChargerTemperature.setChargerProperty("0");
+        vv1.setVoltageInfo("0.00");
+        vv2.setVoltageInfo("0.00");
+        vv3.setVoltageInfo("0.00");
+        vv4.setVoltageInfo("0.00");
+        vv5.setVoltageInfo("0.00");
+        vv6.setVoltageInfo("0.00");
+        vv7.setVoltageInfo("0.00");
+        vv8.setVoltageInfo("0.00");
+        vv9.setVoltageInfo("0.00");
+        vv10.setVoltageInfo("0.00");
+        vv11.setVoltageInfo("0.00");
+        vv12.setVoltageInfo("0.00");
     }
 
     @Override
