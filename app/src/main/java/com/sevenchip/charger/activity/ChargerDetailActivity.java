@@ -15,6 +15,8 @@ import com.sevenchip.charger.data.bean.UpstreamData;
 import com.sevenchip.charger.widget.ChargerPropertyView;
 import com.sevenchip.charger.widget.VoltageView;
 
+import java.math.BigDecimal;
+
 import butterknife.BindView;
 
 /**
@@ -150,19 +152,21 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
         cpvDuration.setChargerProperty(upstreamData.getChargingTime());
         cpvBatteryId.setChargerProperty(AppUIFormatUtils.getBatteryId(upstreamData));
         cpvChNum.setChargerProperty(AppUIFormatUtils.getChannelNo(upstreamData));
-        vv1.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[0]));
-        vv2.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[1]));
-        vv3.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[2]));
-        vv4.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[3]));
-        vv5.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[4]));
-        vv6.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[5]));
-        vv7.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[6]));
-        vv8.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[7]));
-        vv9.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[8]));
-        vv10.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[9]));
-        vv11.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[10]));
-        vv12.setVoltageInfo(String.valueOf(upstreamData.get_BVXS()[11]));
+        vv1.setVoltageInfo(upstreamData.getSingleVoltage(0));
+        vv2.setVoltageInfo(upstreamData.getSingleVoltage(1));
+        vv3.setVoltageInfo(upstreamData.getSingleVoltage(2));
+        vv4.setVoltageInfo(upstreamData.getSingleVoltage(3));
+        vv5.setVoltageInfo(upstreamData.getSingleVoltage(4));
+        vv6.setVoltageInfo(upstreamData.getSingleVoltage(5));
+        vv7.setVoltageInfo(upstreamData.getSingleVoltage(6));
+        vv8.setVoltageInfo(upstreamData.getSingleVoltage(7));
+        vv9.setVoltageInfo(upstreamData.getSingleVoltage(8));
+        vv10.setVoltageInfo(upstreamData.getSingleVoltage(9));
+        vv11.setVoltageInfo(upstreamData.getSingleVoltage(10));
+        vv12.setVoltageInfo(upstreamData.getSingleVoltage(11));
     }
+
+
 
     private void initDefaultData() {
         AppUIFormatUtils.setOfflineStatus(tvStatus);

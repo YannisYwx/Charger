@@ -1,15 +1,31 @@
 apply plugin: 'com.android.application'
 
+static def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
 android {
     compileSdkVersion 28
+//    defaultConfig {
+//        applicationId "com.sevenchip.charger"
+//        minSdkVersion 18
+//        targetSdkVersion 28
+//        versionCode 1
+//        versionName "1.0"
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//    }
+
     defaultConfig {
         applicationId "com.sevenchip.charger"
-        minSdkVersion 18
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        resConfigs "zh", "en"
+        javaCompileOptions { annotationProcessorOptions { includeCompileClasspath = true } }
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -21,9 +37,11 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
     }
 
-//    dataBinding {
-//        enabled = true
-//    }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "${rootProject.ext.android.appName}_N${rootProject.ext.android.versionName}_C${rootProject.ext.android.versionCode}_${releaseTime()}.apk"
+        }
+    }
 
 }
 

@@ -7,6 +7,7 @@ import com.sevenchip.charger.utils.AppUIFormatUtils;
 import com.sevenchip.charger.utils.ByteUtils;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Arrays;
 
 /**
@@ -254,6 +255,12 @@ public class UpstreamData implements Serializable {
     public float[] get_BVXS() {
         return _BVXS;
     }
+
+    public String getSingleVoltage(int index){
+        BigDecimal b  = BigDecimal.valueOf(_BVXS[index]);
+        return String.valueOf(b.setScale(2,  BigDecimal.ROUND_HALF_UP).floatValue());
+    }
+
 
     public void set_BVXS(float[] _BVXS) {
         this._BVXS = _BVXS;
