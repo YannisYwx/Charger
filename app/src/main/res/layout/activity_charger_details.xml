@@ -22,7 +22,7 @@
             <View
                 android:id="@+id/bg"
                 android:layout_width="match_parent"
-                android:layout_height="780dp"
+                android:layout_height="760dp"
                 android:layout_marginEnd="26dp"
                 android:layout_marginStart="26dp"
                 android:layout_marginTop="112dp"
@@ -254,19 +254,23 @@
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_1"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:layout_marginTop="15dp"
                 app:layout_constraintLeft_toLeftOf="@+id/bg"
+                app:layout_constraintRight_toLeftOf="@id/vv_2"
                 app:layout_constraintTop_toBottomOf="@+id/tv_section"
                 app:powerIcon="@mipmap/icon_power_full"
                 app:second="1S"/>
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_2"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
                 android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@id/vv_3"
                 app:layout_constraintLeft_toRightOf="@+id/vv_1"
                 app:layout_constraintTop_toTopOf="@+id/vv_1"
                 app:powerIcon="@mipmap/icon_power_full"
@@ -274,8 +278,10 @@
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_3"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
                 android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@id/vv_4"
                 app:layout_constraintLeft_toRightOf="@+id/vv_2"
                 app:layout_constraintTop_toTopOf="@+id/vv_1"
                 app:powerIcon="@mipmap/icon_power_full"
@@ -283,8 +289,10 @@
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_4"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
                 android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@id/vv_5"
                 app:layout_constraintLeft_toRightOf="@+id/vv_3"
                 app:layout_constraintTop_toTopOf="@+id/vv_1"
                 app:powerIcon="@mipmap/icon_power_full"
@@ -292,8 +300,10 @@
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_5"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
                 android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@id/vv_6"
                 app:layout_constraintLeft_toRightOf="@+id/vv_4"
                 app:layout_constraintTop_toTopOf="@+id/vv_1"
                 app:powerIcon="@mipmap/icon_power_full"
@@ -301,8 +311,10 @@
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_6"
-                android:layout_width="wrap_content"
+                app:layout_constraintHorizontal_weight="1"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                app:layout_constraintRight_toRightOf="@id/bg"
                 app:layout_constraintLeft_toRightOf="@+id/vv_5"
                 app:layout_constraintTop_toTopOf="@+id/vv_1"
                 app:powerIcon="@mipmap/icon_power_full"
@@ -310,28 +322,34 @@
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_7"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="25dp"
                 android:layout_marginStart="4dp"
+                app:layout_constraintLeft_toLeftOf="@+id/bg"
+                app:layout_constraintRight_toLeftOf="@id/vv_8"
                 app:layout_constraintBottom_toBottomOf="@+id/bg"
                 app:layout_constraintTop_toBottomOf="@id/vv_1"
-                app:layout_constraintLeft_toLeftOf="@+id/bg"
                 app:powerIcon="@mipmap/icon_power_full"
                 app:second="7S"/>
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
                 app:layout_constraintLeft_toRightOf="@+id/vv_7"
+                app:layout_constraintRight_toLeftOf="@id/vv_9"
+                android:layout_height="wrap_content"
                 app:layout_constraintTop_toTopOf="@+id/vv_7"
                 app:powerIcon="@mipmap/icon_power_full"
                 app:second="8S"/>
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_9"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintRight_toLeftOf="@id/vv_10"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toRightOf="@+id/vv_8"
                 app:layout_constraintTop_toTopOf="@+id/vv_7"
@@ -340,7 +358,9 @@
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_10"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintRight_toLeftOf="@id/vv_11"
                 android:layout_height="wrap_content"
                 app:layout_constraintLeft_toRightOf="@+id/vv_9"
                 app:layout_constraintTop_toTopOf="@+id/vv_7"
@@ -349,8 +369,10 @@
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_11"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                app:layout_constraintHorizontal_weight="1"
                 android:layout_height="wrap_content"
+                app:layout_constraintRight_toLeftOf="@id/vv_12"
                 app:layout_constraintLeft_toRightOf="@+id/vv_10"
                 app:layout_constraintTop_toTopOf="@+id/vv_7"
                 app:powerIcon="@mipmap/icon_power_full"
@@ -358,8 +380,10 @@
 
             <com.sevenchip.charger.widget.VoltageView
                 android:id="@+id/vv_12"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                app:layout_constraintHorizontal_weight="1"
+                app:layout_constraintRight_toRightOf="@id/bg"
                 app:layout_constraintLeft_toRightOf="@+id/vv_11"
                 app:layout_constraintTop_toTopOf="@+id/vv_7"
                 app:powerIcon="@mipmap/icon_power_full"

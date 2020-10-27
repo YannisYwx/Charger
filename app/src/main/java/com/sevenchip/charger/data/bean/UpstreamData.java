@@ -8,6 +8,7 @@ import com.sevenchip.charger.utils.ByteUtils;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Arrays;
 
 /**
@@ -257,8 +258,11 @@ public class UpstreamData implements Serializable {
     }
 
     public String getSingleVoltage(int index){
-        BigDecimal b  = BigDecimal.valueOf(_BVXS[index]);
-        return String.valueOf(b.setScale(2,  BigDecimal.ROUND_HALF_UP).floatValue());
+        // 四舍五入
+        BigDecimal value = BigDecimal.valueOf(_BVXS[index]).setScale(2,BigDecimal.ROUND_HALF_UP);
+        // 不足两位小数补0
+        DecimalFormat decimalFormat = new DecimalFormat("0.00#");
+        return decimalFormat.format(value);
     }
 
 
