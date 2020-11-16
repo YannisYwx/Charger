@@ -378,9 +378,9 @@ public class UDPManager {
                 mLastReceiveTime = System.currentTimeMillis();
                 SystemClock.sleep(500);
                 postUI(Status.DATA_RECEIVE, data, null);
-                if(count == 24) {
-                    stopTestTask();
-                }
+//                if(count == 48) {
+//                    stopTestTask();
+//                }
             }
         }
     }

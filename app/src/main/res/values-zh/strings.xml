@@ -61,6 +61,10 @@
 
     <string name="charger_duration">%02d:%02d:%02d</string>
     <string name="channel_num">CH-%d</string>
+    <string name="data_1">数据 0</string>
+    <string name="data_2">数据 1</string>
+    <string name="channel_1">通道 1</string>
+    <string name="channel_2">通道 2</string>
 
     <string name="settings_success">设置成功</string>
     <string name="settings_failed">设置失败</string>

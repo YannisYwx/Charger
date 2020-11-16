@@ -15,12 +15,10 @@ import com.sevenchip.charger.data.bean.UpstreamData;
 import com.sevenchip.charger.widget.ChargerPropertyView;
 import com.sevenchip.charger.widget.VoltageView;
 
-import java.math.BigDecimal;
-
 import butterknife.BindView;
 
 /**
- * Author : Alvin
+ * @author : Alvin
  * CreateTime : 2020/7/26 22:49
  * Description :
  */
@@ -44,7 +42,7 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
     @BindView(R.id.cv_charger_temperature)
     ChargerPropertyView cpvChargerTemperature;
     @BindView(R.id.cv_cap)
-    ChargerPropertyView cpvCAP;
+    ChargerPropertyView cpvCap;
     @BindView(R.id.cv_current)
     ChargerPropertyView cpvCurrent;
     @BindView(R.id.cv_duration)
@@ -78,7 +76,6 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
     @BindView(R.id.vv_12)
     VoltageView vv12;
 
-    private UpstreamData upstreamData;
     private String deviceId;
     private int channelNum = 0;
 
@@ -90,7 +87,7 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
 
     @Override
     protected void init() {
-        upstreamData = (UpstreamData) getIntent().getSerializableExtra(KEY_CHANNEL);
+        UpstreamData upstreamData = (UpstreamData) getIntent().getSerializableExtra(KEY_CHANNEL);
         deviceId = upstreamData.getDownstreamData().getDeviceID();
         channelNum = upstreamData.getDownstreamData().getChannelNum();
         refreshUI(upstreamData);
@@ -140,7 +137,7 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
 
     private void initUIByData(@NonNull UpstreamData upstreamData){
         tvChargerId.setText(getString(R.string.battery_, AppUIFormatUtils.getBatteryId(upstreamData)));
-        tvChannel.setText(upstreamData.getDownstreamData().getChannelNum() == 0 ? R.string.ch1 : R.string.ch2);
+        tvChannel.setText(upstreamData.getDownstreamData().getChannelNum() == 0 ? R.string.data_1 : R.string.data_2);
         AppUIFormatUtils.setChargerStatusInfo(tvStatus, upstreamData);
         cpvBatteryType.setChargerProperty(AppUIFormatUtils.getBatteryType(upstreamData));
         cpvBatteryCells.setChargerProperty(upstreamData.getDownstreamData().getCells() + "");
@@ -148,7 +145,7 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
         cpvCurrent.setChargerProperty(String.valueOf(upstreamData.getCurrentCurrent()));
         cpvBatteryTemperature.setChargerProperty(String.valueOf(upstreamData.getBatteryTemperature()));
         cpvChargerTemperature.setChargerProperty(String.valueOf(upstreamData.getChargerTemperature()));
-        cpvCAP.setChargerProperty(String.valueOf(upstreamData.getCurrentCapacity()));
+        cpvCap.setChargerProperty(String.valueOf(upstreamData.getCurrentCapacity()));
         cpvDuration.setChargerProperty(upstreamData.getChargingTime());
         cpvBatteryId.setChargerProperty(AppUIFormatUtils.getBatteryId(upstreamData));
         cpvChNum.setChargerProperty(AppUIFormatUtils.getChannelNo(upstreamData));
@@ -172,7 +169,7 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
         AppUIFormatUtils.setOfflineStatus(tvStatus);
         cpvVoltage.setChargerProperty("0.0");
         cpvCurrent.setChargerProperty("0.0");
-        cpvCAP.setChargerProperty("0");
+        cpvCap.setChargerProperty("0");
         cpvDuration.setChargerProperty("00:00:00");
         cpvBatteryTemperature.setChargerProperty("0");
         cpvChargerTemperature.setChargerProperty("0");

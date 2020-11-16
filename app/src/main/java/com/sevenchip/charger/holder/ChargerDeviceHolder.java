@@ -141,6 +141,8 @@ public class ChargerDeviceHolder extends BaseRecycleHolder<BatteryCharger> imple
             tvCH1Sb.setText(sbCH1.isSelected() ? R.string.charger_status_start : R.string.charger_status_stop);
         } else {
             sbCH1.setEnabled(false);
+            sbCH1.setSelected(false);
+            tvCH1Sb.setText(R.string.charger_status_stop);
             tvCH1Current.setText("0.0");
             AppUIFormatUtils.setOfflineStatus(tvCH1Status);
             tvCH1Temperature.setText("0.0");
@@ -186,6 +188,8 @@ public class ChargerDeviceHolder extends BaseRecycleHolder<BatteryCharger> imple
 
         } else {
             sbCH2.setEnabled(false);
+            sbCH2.setSelected(false);
+            tvCH2Sb.setText(R.string.charger_status_stop);
             tvCH2Current.setText("0.0");
             AppUIFormatUtils.setOfflineStatus(tvCH2Status);
             tvCH2Temperature.setText("0.0");

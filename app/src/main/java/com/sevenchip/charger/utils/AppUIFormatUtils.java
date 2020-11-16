@@ -18,12 +18,12 @@ import com.sevenchip.charger.data.status.WorkStatus;
  */
 public class AppUIFormatUtils {
 
-    private static String[] BATTERY_TYPE = ChargerApplication.instance.getResources().getStringArray(R.array.battery_type);
-    private static String[] BATTERY_STATUS = ChargerApplication.instance.getResources().getStringArray(R.array.battery_status);
-    private static String[] WORK_MODE = ChargerApplication.instance.getResources().getStringArray(R.array.work_mode);
+    private static String[] BATTERY_TYPE1 = ChargerApplication.instance.getResources().getStringArray(R.array.battery_type);
+    private static String[] BATTERY_STATUS1 = ChargerApplication.instance.getResources().getStringArray(R.array.battery_status);
+    private static String[] WORK_MODE1 = ChargerApplication.instance.getResources().getStringArray(R.array.work_mode);
 
     public static String getStatusInfo(int cell, @BatteryType int batteryType, int status) {
-        return cell + "s" + " " + BATTERY_TYPE[batteryType] + BATTERY_STATUS[status];
+        return cell + "s" + " " + ChargerApplication.instance.getResources().getStringArray(R.array.battery_type)[batteryType] + ChargerApplication.instance.getResources().getStringArray(R.array.battery_status)[status];
     }
 
     /**
@@ -51,22 +51,22 @@ public class AppUIFormatUtils {
         if (workStatus == WorkStatus.Working) {
             backgroundRes = R.drawable.bg_status_charging;
             textColor = R.color.chocolate;
-            statusInfo = cell + "s" + " " + BATTERY_TYPE[batteryType] + " " + WORK_MODE[workMode / 3];
+            statusInfo = cell + "s" + " " + ChargerApplication.instance.getResources().getStringArray(R.array.battery_type)[batteryType] + " " + ChargerApplication.instance.getResources().getStringArray(R.array.work_mode)[workMode / 3];
         } else if (workStatus == WorkStatus.Finished) {
             backgroundRes = R.drawable.bg_status_full;
             textColor = R.color.themeBlue;
-            statusInfo = cell + "s" + " " + BATTERY_TYPE[batteryType] + " " + BATTERY_STATUS[batteryStatus];
+            statusInfo = cell + "s" + " " + ChargerApplication.instance.getResources().getStringArray(R.array.battery_type)[batteryType] + " " + ChargerApplication.instance.getResources().getStringArray(R.array.battery_status)[batteryStatus];
         } else if (workStatus == WorkStatus.Error) {
             backgroundRes = R.drawable.bg_status_error;
             textColor = R.color.real_red;
-            statusInfo = BATTERY_STATUS[batteryStatus];
+            statusInfo = ChargerApplication.instance.getResources().getStringArray(R.array.battery_status)[batteryStatus];
         }
         textView.setBackgroundResource(backgroundRes);
         textView.setTextColor(ChargerApplication.instance.getResources().getColor(textColor));
         textView.setText(statusInfo);
     }
 
-    public static void setOfflineStatus(TextView textView){
+    public static void setOfflineStatus(TextView textView) {
         textView.setText(R.string.offline);
         textView.setBackgroundResource(R.drawable.bg_status_full);
         textView.setTextColor(ChargerApplication.instance.getResources().getColor(R.color.themeBlue));
@@ -102,7 +102,7 @@ public class AppUIFormatUtils {
      * @return 电池类型
      */
     public static String getBatteryType(UpstreamData upstreamData) {
-        return BATTERY_TYPE[upstreamData.getDownstreamData().getBatteryType()];
+        return ChargerApplication.instance.getResources().getStringArray(R.array.battery_type)[upstreamData.getDownstreamData().getBatteryType()];
     }
 
     public static String getChargerDuration(int hour, int minute, int second) {
@@ -116,7 +116,7 @@ public class AppUIFormatUtils {
      * @return 辅助状态
      */
     public static String getCPAInfo(UpstreamData upstreamData) {
-        return BATTERY_STATUS[upstreamData.getBatteryStatus()];
+        return ChargerApplication.instance.getResources().getStringArray(R.array.battery_status)[upstreamData.getBatteryStatus()];
     }
 
     public static String getBatteryId(UpstreamData upstreamData) {
@@ -125,7 +125,8 @@ public class AppUIFormatUtils {
     }
 
     public static String getChannelNo(UpstreamData upstreamData) {
-        return ChargerApplication.instance.getString(R.string.channel_num, upstreamData.getDownstreamData().getChannelNum());
+        int res = upstreamData.getDownstreamData().getChannelNum() == 0 ? R.string.channel_1 : R.string.channel_2;
+        return ChargerApplication.instance.getString(res);
     }
 
     public static int getData_BatteryType(RadioGroup group) {
@@ -142,6 +143,8 @@ public class AppUIFormatUtils {
                 break;
             case R.id.rb_GENS_ACE:
                 batteryType = 3;
+                break;
+            default:
                 break;
         }
         return batteryType;
@@ -161,6 +164,8 @@ public class AppUIFormatUtils {
                 break;
             case R.id.rb_balance:
                 workMode = 9;
+                break;
+            default:
                 break;
         }
         return workMode;

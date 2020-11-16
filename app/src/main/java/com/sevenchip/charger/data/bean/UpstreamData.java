@@ -149,7 +149,7 @@ public class UpstreamData implements Serializable {
         this.downstreamData = DownstreamData.parseBytes2DownstreamData(data);
         this.workStatus = data[23];
         this.totalVoltage = ByteUtils.byteArray2Int(data, 24, 2, false) / 100.00f;
-        this.currentCurrent = ByteUtils.byteArray2Int(data, 26, 2, false) / 100.00f;
+        this.currentCurrent = ByteUtils.byteArray2Int(data, 26, 2, false) / 10.00f;
         this.batteryTemperature = data[28];
         this.chargerTemperature = data[29];
         this.chargingCapacity = ByteUtils.byteArray2Int(data, 30, 4, false);
