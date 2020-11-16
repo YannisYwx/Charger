@@ -91,6 +91,8 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
         deviceId = upstreamData.getDownstreamData().getDeviceID();
         channelNum = upstreamData.getDownstreamData().getChannelNum();
         refreshUI(upstreamData);
+        cpvBatteryId.setVisibility(View.GONE);
+        cpvChNum.setVisibility(View.GONE);
     }
 
     @Override
@@ -137,7 +139,7 @@ public class ChargerDetailActivity extends BaseActivity implements DataManager.O
 
     private void initUIByData(@NonNull UpstreamData upstreamData){
         tvChargerId.setText(getString(R.string.battery_, AppUIFormatUtils.getBatteryId(upstreamData)));
-        tvChannel.setText(upstreamData.getDownstreamData().getChannelNum() == 0 ? R.string.data_1 : R.string.data_2);
+        tvChannel.setText(upstreamData.getDownstreamData().getChannelNum() == 0 ? R.string.ch1 : R.string.ch2);
         AppUIFormatUtils.setChargerStatusInfo(tvStatus, upstreamData);
         cpvBatteryType.setChargerProperty(AppUIFormatUtils.getBatteryType(upstreamData));
         cpvBatteryCells.setChargerProperty(upstreamData.getDownstreamData().getCells() + "");

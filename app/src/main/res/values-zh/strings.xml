@@ -60,11 +60,6 @@
     <string name="hint_hl_battery_cells">2～12S</string>
 
     <string name="charger_duration">%02d:%02d:%02d</string>
-    <string name="channel_num">CH-%d</string>
-    <string name="data_1">数据 0</string>
-    <string name="data_2">数据 1</string>
-    <string name="channel_1">通道 1</string>
-    <string name="channel_2">通道 2</string>
 
     <string name="settings_success">设置成功</string>
     <string name="settings_failed">设置失败</string>
@@ -79,7 +74,7 @@
     <string name="charger_temp">充电温度</string>
     <string name="duration">充电时长</string>
     <string name="charger_no">通道号</string>
-    <string name="battery_">电池 %s</string>
+    <string name="battery_">PID: %s</string>
     <string name="input_device_id_to_add">您可以通过输入设备号添加设备</string>
     <string name="input_device_id">请输入设备号</string>
     <string name="settings_wifi_account">请输入wifi账号</string>

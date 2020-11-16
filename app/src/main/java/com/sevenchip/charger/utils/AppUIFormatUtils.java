@@ -54,7 +54,7 @@ public class AppUIFormatUtils {
             statusInfo = cell + "s" + " " + ChargerApplication.instance.getResources().getStringArray(R.array.battery_type)[batteryType] + " " + ChargerApplication.instance.getResources().getStringArray(R.array.work_mode)[workMode / 3];
         } else if (workStatus == WorkStatus.Finished) {
             backgroundRes = R.drawable.bg_status_full;
-            textColor = R.color.themeBlue;
+            textColor = R.color.full_green;
             statusInfo = cell + "s" + " " + ChargerApplication.instance.getResources().getStringArray(R.array.battery_type)[batteryType] + " " + ChargerApplication.instance.getResources().getStringArray(R.array.battery_status)[batteryStatus];
         } else if (workStatus == WorkStatus.Error) {
             backgroundRes = R.drawable.bg_status_error;
@@ -125,7 +125,7 @@ public class AppUIFormatUtils {
     }
 
     public static String getChannelNo(UpstreamData upstreamData) {
-        int res = upstreamData.getDownstreamData().getChannelNum() == 0 ? R.string.channel_1 : R.string.channel_2;
+        int res = upstreamData.getDownstreamData().getChannelNum() == 0 ? R.string.ch1 : R.string.ch2;
         return ChargerApplication.instance.getString(res);
     }
 

@@ -9,8 +9,8 @@
     <string name="settings_wifi">Wifi settings</string>
     <string name="dialog_title_delete_device">Whether to delete this device?</string>
     <string name="test">Test</string>
-    <string name="ch1">CH-1</string>
-    <string name="ch2">CH-2</string>
+    <string name="ch1">CH1</string>
+    <string name="ch2">CH2</string>
     <string name="wifi_status_disconnect">Wifi is disconnect</string>
     <string name="wifi_status_connect">Connect Wifi : %s</string>
     <string name="wifi_status_close">Wifi is close</string>
@@ -60,11 +60,6 @@
     <string name="hint_hl_battery_cells">2～12S</string>
 
     <string name="charger_duration">%02d:%02d:%02d</string>
-    <string name="channel_num">CH-%d</string>
-    <string name="data_1">Data 0</string>
-    <string name="data_2">Data 1</string>
-    <string name="channel_1">Channel 1</string>
-    <string name="channel_2">Channel 2</string>
 
     <string name="settings_success">Setting success</string>
     <string name="settings_failed">Setting failed</string>
@@ -79,7 +74,7 @@
     <string name="charger_temp">Charger TEMP</string>
     <string name="duration">Duration</string>
     <string name="charger_no">No. of charger</string>
-    <string name="battery_">Battery %s</string>
+    <string name="battery_">PID: %s</string>
     <string name="input_device_id_to_add">Enter charger number，You can add charger</string>
     <string name="input_device_id">Enter charger number</string>
     <string name="settings_wifi_account">input wifi account</string>
