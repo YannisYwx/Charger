@@ -52,7 +52,7 @@ public class UDPManager {
     private Handler mUIHandler;
 
     private long mLastReceiveTime = -1L;
-    private static final long TIME_OUT = 3 * 1000;
+    private static final long TIME_OUT = 10 * 1000;
 
     private HeartbeatTimer timer;
 

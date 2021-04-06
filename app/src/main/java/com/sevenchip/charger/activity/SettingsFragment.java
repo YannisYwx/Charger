@@ -27,6 +27,8 @@ import com.sevenchip.charger.utils.PrefUtils;
 import com.sevenchip.charger.widget.SettingPropertyView;
 import com.sevenchip.charger.widget.SwitchButton;
 
+import java.text.MessageFormat;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -97,6 +99,7 @@ public class SettingsFragment extends BaseMVPFragment<SettingsPresenter> impleme
             channelNum = args.getInt(KEY_CHANNEL_NUM);
             if (mBatteryCharger != null) {
                 upstreamData = channelNum == 0 ? mBatteryCharger.getCH01() : mBatteryCharger.getCH02();
+                tvStatus.setText(MessageFormat.format("PID:{0}", upstreamData.getDownstreamData().getDeviceID()));
                 if (upstreamData != null) {
                     //获取当前的工作模式 并保存状态
                     mDownstreamData = upstreamData.getDownstreamData();

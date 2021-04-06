@@ -38,7 +38,7 @@
         <activity android:name=".activity.TestUDPConnActivity"/>
         <activity android:name=".activity.TestTCPActivity"/>
         <activity android:name=".activity.TestActivity"/>
-        <activity android:name=".activity.AddDeviceActivity"/>
+        <activity android:name=".activity.AddDeviceActivity" android:windowSoftInputMode="adjustPan|stateHidden"/>
         <activity android:name=".activity.DeviceIdListActivity"/>
         <activity android:name=".activity.WifiSettingActivity"/>
     </application>
