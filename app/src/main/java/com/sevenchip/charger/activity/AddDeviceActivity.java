@@ -102,6 +102,8 @@ public class AddDeviceActivity extends BaseActivity {
     private List<String> ids = new ArrayList<>();
 
     private void sss() {
+        ids.clear();
+        List<String> dbIds = DataManager.getInstance().getAllBindDeviceIds(this);
         String strID = etNumber.getText().toString();
         int le = strID.length();
         int c = 6 - le;
@@ -120,14 +122,13 @@ public class AddDeviceActivity extends BaseActivity {
             String id1 = ByteUtils.byteArray2String(sb);
             String id2 = id1.substring(3);
             System.out.println(id2 + "********************************" + id1 + "----" + u + "^^^^^^^^^^^^^^^^^" + startId);
-            ids.add(id2);
-            sbb.append(id2).append("~");
+            if(!dbIds.contains(id2)) {
+                ids.add(id2);
+                sbb.append(id2).append("~");
+            }
         }
         tvIds.setText(sbb.toString());
-
-
     }
-
 
     @Override
     protected int setLayoutResId() {
