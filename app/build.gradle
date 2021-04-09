@@ -60,4 +60,5 @@ dependencies {
     implementation project(':magicindicator')
 
     implementation 'me.imid.swipebacklayout.lib:library:1.1.0'
+    implementation "cat.ereza:customactivityoncrash:2.2.0"
 }
